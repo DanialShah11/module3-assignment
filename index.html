@@ -39,18 +39,11 @@ Live link: https://danialshah11.github.io/module3-assignment/ -->
 
         <div id="collapsable-nav" class="collapse navbar-collapse">
           <ul id="nav-list" class=" hidden-lg hidden-md hidden-sm nav navbar-nav navbar-right">
-            <li>
-              <a href="#">
-                <br class="visible-xs"> Graphics Card</a>
-            </li>
-            <li>
-              <a href="#">
-                <br class="visible-xs"> (SSD)</a>
-            </li>
-            <li>
-              <a href="#">
-                <br class="visible-xs"> CPU Cooler</a>
-            </li>
+            <li><a href="#graphics-card" id="graphics-card-link" class="nav-link"><br class="visible-xs"> Graphics
+                Card</a></li>
+            <li><a href="#ssd" id="ssd-link" class="nav-link"><br class="visible-xs"> (SSD)</a></li>
+            <li><a href="#cpu-cooler" id="cpu-cooler-link" class="nav-link"><br class="visible-xs"> CPU Cooler</a></li>
+
           </ul>
         </div>
       </div><!-- .container -->
@@ -67,10 +60,10 @@ Live link: https://danialshah11.github.io/module3-assignment/ -->
   </div>
   <!--End of Heading -->
 
- <!-- Sections Part -->
+  <!-- Sections Part -->
   <div class="container">
     <div class=" col-xs-12">
-      <div id="section" class="jumbotron row">
+      <div id="graphics-card" class="jumbotron row section">
         <h3 class="text-center">Graphics Card</h3>
         <p>This graphics card delivers gaming and creative performance. With advanced architecture and ample VRAM, it
           supports ray tracing for lifelike visuals. Multiple cooling fans and a sleek design enhance airflow,
@@ -85,8 +78,9 @@ Live link: https://danialshah11.github.io/module3-assignment/ -->
           display preferences. Unlock its full potential with overclocking capabilities that take your gaming experience
           to new heights, making every moment a pulse-pounding adventure. Whether you're a dedicated gamer or a creative
           enthusiast, this graphics card stands ready to deliver unparalleled performance and realism.</p>
+        <a href="#header-nav" class="back-to-top">Go back to top</a>
       </div>
-      <div id="section" class="jumbotron row">
+      <div id="ssd" class="jumbotron row section">
         <h3 class="text-center">(SSD)</h3>
         <p>This SSD provides high-speed storage. With a high capacity, it accommodates games and applications. Built on
           NAND flash technology, it ensures quick data access. Wear-leveling algorithms enhance longevity and
@@ -103,8 +97,9 @@ Live link: https://danialshah11.github.io/module3-assignment/ -->
           thoughtfully designed energy-efficient factor also contributes to reduced power consumption, aligning both
           speed
           and sustainability in one remarkable package.</p>
+        <a href="#header-nav" class="back-to-top">Go back to top</a>
       </div>
-      <div id="section" class="jumbotron row">
+      <div id="cpu-cooler" class="jumbotron row section">
         <h3 class="text-center">CPU Cooler</h3>
         <p>The CPU cooler ensures heat dissipation. It features heat pipes for efficient temperature transfer. A
           fan maintains optimal airflow. User-friendly, versatile socket compatibility make it ideal
@@ -121,12 +116,54 @@ Live link: https://danialshah11.github.io/module3-assignment/ -->
           in effectively dispersing heat. The cooler's sleek and thoughtfully crafted design aligns form with function,
           presenting a holistic cooling solution that's as visually striking as it is efficient in heat dissipation,
           guaranteeing your system's longevity and performance.</p>
+        <a href="#header-nav" class="back-to-top">Go back to top</a>
       </div>
     </div>
   </div>
- <!-- End of Sections Part -->
+  <!-- End of Sections Part -->
 
   <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  <!-- Add this JavaScript just before the closing </body> tag -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var navLinks = document.querySelectorAll('.nav-link');
+      var body = document.body;
+
+      // Add click event listeners to navigation links
+      for (var i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener('click', function (event) {
+          // Remove active class from all links
+          for (var j = 0; j < navLinks.length; j++) {
+            navLinks[j].classList.remove('active-link');
+          }
+          // Add active class to clicked link
+          event.target.classList.add('active-link');
+        });
+      }
+
+      // Add click event listener to body to remove active class
+      body.addEventListener('click', function (event) {
+        // Check if the clicked element is a navigation link or the "Go back to top" link
+        var isNavLink = event.target.classList.contains('nav-link');
+        var isGoBackToTop = event.target.classList.contains('back-to-top');
+
+        // If clicked element is not a navigation link or "Go back to top", remove active class
+        if (!isNavLink && !isGoBackToTop) {
+          for (var j = 0; j < navLinks.length; j++) {
+            navLinks[j].classList.remove('active-link');
+          }
+        }
+      });
+
+      // Prevent click event propagation from navigation links
+      for (var k = 0; k < navLinks.length; k++) {
+        navLinks[k].addEventListener('click', function (event) {
+          event.stopPropagation();
+        });
+      }
+    });
+  </script>
+
   <script src="js/jquery-2.1.4.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/script.js"></script>
