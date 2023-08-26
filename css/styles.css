@@ -152,6 +152,11 @@ body {
   .container #section{
     margin: 0px 30px 30px;
   }
+
+  .container #section p{
+    font-size: .7em;
+  }
+
   .container .jumbotron {
     margin-top: 0px;
     padding: 30px;
@@ -198,6 +203,10 @@ body {
 
   .container #section{
     margin: 0px 2px 10px;
+  }
+
+  .container #section p{
+    font-size: .6em;
   }
   /* End of Home */
 }
